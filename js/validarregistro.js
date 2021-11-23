@@ -45,7 +45,6 @@ function validar(){
         
     }
 
-    //1. Escribir la funcion Ajax para consultar
-    //2. Llamar a una función que contenga el Ajax y pasarle el usuario y clave
+
 
 }
