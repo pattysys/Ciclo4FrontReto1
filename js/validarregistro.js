@@ -45,6 +45,43 @@ function validar(){
         
     }
 
+    var datos = {
+        name: $("#usuario").val(),
+        email: $("#email").val(),
+        password: $("#clave").val(),
+        // password2: $("#clave2").val(),
 
+    };
+
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(datos),
+
+        url: "http://localhost:8080/api/user/new",
+
+
+        success: function (response) {
+            $("#name").val("");
+            $("#email").val("");
+            $("#clave").val("");
+            $("#clave2").val("");
+
+            console.log(response);
+            console.log("Cuenta creada de forma correcta");
+            alert("Registro exitoso");
+            window.location.reload()
+
+        },
+
+        error: function (jqXHR, textStatus, errorThrown) {
+            window.location.reload()
+            alert("No fue posible crear la cuenta");
+
+
+        }
+    }
+    );
 
 }
