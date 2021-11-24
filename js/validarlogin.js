@@ -1,10 +1,10 @@
 function validar() {
-  const usuario = document.getElementById('usuario');
+  const email = document.getElementById('email');
   const clave = document.getElementById('clave');
 
-  if (usuario.value.length == 0) {
-    alert("Ingrese un usuario")
-    usuario.focus()
+  if (email.value.length == 0) {
+    alert("Ingrese un email")
+    email.focus()
     return 0;
   }
 
@@ -16,7 +16,7 @@ function validar() {
   }
 
   let credentials = {
-    usuario: $("#usuario").val(),
+    email: $("#email").val(),
     clave: $("#clave").val()
   };
 
@@ -26,11 +26,11 @@ function validar() {
     dataType: 'JSON',
     // data: JSON.stringify(credentials),
 
-    url: "http://localhost:8080/api/user/" + credentials.usuario + "/" + credentials.clave,
+    url: "http://localhost:8080/api/user/" + credentials.email + "/" + credentials.clave,
 
     success: function (response) {
       if (response.name == 'NO DEFINIDO') {
-        alert('Usuario o clave incorrectos!');
+        alert('email o clave incorrectos!');
         return;
       }
       console.log(response);
