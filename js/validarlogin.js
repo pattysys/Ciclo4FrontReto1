@@ -36,11 +36,11 @@ function validar() {
       console.log(response);
       console.log("Bienvenido");
       alert("Acabas de iniciar sesion");
-      // window.location.reload()
+      window.location.reload()
     },
 
     error: function (jqXHR, textStatus, errorThrown) {
-      // window.location.reload()
+      window.location.reload()
       alert("no existe usuario");
     }
   }
