@@ -1,23 +1,23 @@
 function validar() {
   const email = document.getElementById('email');
-  const clave = document.getElementById('clave');
+  const password = document.getElementById('password');
 
   if (email.value.length == 0) {
-    alert("Ingrese un email")
+    alert("Ingrese su correo electronico")
     email.focus()
     return 0;
   }
 
-  if (clave.value.length == 0) {
+  if (password.value.length == 0) {
     alert("Ingrese una contraseña")
-    clave.focus()
+    password.focus()
     return 0;
 
   }
 
   let credentials = {
     email: $("#email").val(),
-    clave: $("#clave").val()
+    password: $("#password").val()
   };
 
   $.ajax({
@@ -26,25 +26,25 @@ function validar() {
     dataType: 'JSON',
     // data: JSON.stringify(credentials),
 
-    url: "http://localhost:8080/api/user/" + credentials.email + "/" + credentials.clave,
+    url: "http://localhost:8080/api/user/" + credentials.email + "/" + credentials.password,
 
     success: function (response) {
       if (response.name == 'NO DEFINIDO') {
-        alert('email o clave incorrectos!');
+        alert('Usuario o clave incorrectos!');
         return;
       }
       console.log(response);
-      console.log("Bienvenido");
-      alert("Acabas de iniciar sesion");
+      console.log("True");
+      alert("Bienvenido acabas de iniciar sesion");
       window.location.reload()
     },
 
     error: function (jqXHR, textStatus, errorThrown) {
       window.location.reload()
+      console.log("False");
       alert("no existe usuario");
     }
   }
   );
-
 
 }
